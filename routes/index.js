@@ -15,6 +15,8 @@ import { insertTindakanKunjungan, getTindakanKunjungan, showTindakanKunjungan } 
 import { insertOrderLab, getOrderLab, showOrderLab } from '../controllers/OrderLabController.js'
 import { insertHasilLab, getHasilLab, showHasilLab } from '../controllers/HasilLabController.js'
 
+import { getDataset } from "../controllers/DatasetController.js"
+import { getEvaluasiModel } from "../controllers/EvaluasiModelController.js"
 
 const router = express.Router()
 
@@ -22,6 +24,12 @@ const router = express.Router()
 router.post('/backend/login', login)
 router.delete('/backend/logout', logout)
 router.get('/backend/token', refreshToken)
+
+// Dataset
+router.get('/backend/dataset', verifyToken, getDataset)
+
+// Evaluasi Model
+router.get('/backend/evaluasi-model', verifyToken, getEvaluasiModel)
 
 // Pasien
 router.get('/backend/pasien', verifyToken, getPasien)
