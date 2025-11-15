@@ -40,6 +40,10 @@ export const get = (req, callback) => {
         'medical.pasien.nama AS pasien_nama, ' +
         'medical.pasien.nik AS pasien_nik, ' +
         'medical.pasien.tanggal_lahir AS pasien_tanggal_lahir, ' +
+        'CASE ' + 
+            'WHEN medical.pasien.jenis_kelamin = 1 THEN "Laki-Laki" ' +  
+            'WHEN medical.pasien.jenis_kelamin = 2 THEN "Perempuan" ' + 
+        'END AS pasien_jenis_kelamin, ' + 
         'medical.poliklinik.id AS poliklinik_id, ' +
         'medical.poliklinik.nama AS poliklinik_nama, ' +
         'medical.kunjungan.dokter_id AS kunjungan_dokter_id, ' +
@@ -138,7 +142,8 @@ export const get = (req, callback) => {
                                     id: row.pasien_id,
                                     nik: row.pasien_nik,
                                     nama: row.pasien_nama,
-                                    tanggalLahir: row.pasien_tanggal_lahir
+                                    tanggalLahir: row.pasien_tanggal_lahir,
+                                    jenisKelamin: row.pasien_jenis_kelamin
                                 },
                                 poliklinik: {
                                     id: row.poliklinik_id,

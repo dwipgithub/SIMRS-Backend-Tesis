@@ -119,7 +119,8 @@ export const get = (req, callback) => {
                 id: item.pasien_id,
                 nik: item.pasien_nik,
                 nama: item.pasien_nama,
-                tanggalLahir: item.pasien_tanggal_lahir
+                tanggalLahir: item.pasien_tanggal_lahir,
+                jenisKelamin: item.pasien_jenis_kelamin
             },
             poliklinik: {
                 id: item.poliklinik_id,

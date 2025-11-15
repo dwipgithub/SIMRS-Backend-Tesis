@@ -14,6 +14,7 @@ import { insertAnamnesis, getAnamnesis, showAnamnesis} from '../controllers/Anam
 import { insertTindakanKunjungan, getTindakanKunjungan, showTindakanKunjungan } from '../controllers/TindakanKunjunganController.js'
 import { insertOrderLab, getOrderLab, showOrderLab } from '../controllers/OrderLabController.js'
 import { insertHasilLab, getHasilLab, showHasilLab } from '../controllers/HasilLabController.js'
+import { insertPrediksiPenyakitJantung } from '../controllers/PrediksiPenyakitJantungController.js'
 
 import { getDataset } from "../controllers/DatasetController.js"
 import { getEvaluasiModel } from "../controllers/EvaluasiModelController.js"
@@ -80,5 +81,8 @@ router.get('/backend/order-lab/:id', verifyToken, showOrderLab)
 router.post('/backend/hasil-lab', verifyToken, insertHasilLab)
 router.get('/backend/hasil-lab', verifyToken, getHasilLab)
 router.get('/backend/hasil-lab/:id', verifyToken, showHasilLab)
+
+// Prediksi Penyakit Jantung KNN
+router.post('/backend/prediksi-penyakit-jantung', verifyToken, insertPrediksiPenyakitJantung)
 
 export default router
